@@ -16,6 +16,22 @@ in a shell this agent can run.
 3. **Stop and show the table to the human.** Publish nothing until they approve it.
 4. Ask the human what every issue here must carry (fields, labels, wording), unless it is
    already written down in this session or in the repo.
+   Every issue here carries, in this order (decided by the human, 2026-10-29):
+
+   ```md
+   Source: plan.md § <n>
+
+   **Scope:** <what to build, from the plan section>
+
+   **Done when:** <the section's "Done when", word for word>
+
+   **Blocked by:** <#n list, or —>
+   ```
+
+   and the label `plan:<plan name>` from plan.md's frontmatter (create it once with
+   `gh label create`). An issue that waits on a person (a review, a sign-off) stays open until
+   they confirm, not when the request is sent.
+
 5. Create each issue in dependency order, so blocked-by can cite real numbers:
 
    ```sh
